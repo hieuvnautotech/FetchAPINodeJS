@@ -2,10 +2,12 @@ const express = require("express");
 const app = express();
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
+const bodyParser = require('body-parser');
 dotenv.config();
+//middle ware
+app.use(bodyParser.json());
 // import routes
 const postRoute = require('./routes/post');
-//middle ware
 app.use('/post', postRoute);
 //routes
 app.get("/", (req, res) => {
